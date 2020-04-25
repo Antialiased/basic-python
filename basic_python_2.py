@@ -1,41 +1,42 @@
-# Exercise 1: Given a list of all english words, print the longest word.
-def print_longest_word(english_words):
-    ()
+# Exercise 1: sum13
+# Write a function that returns the sum of the numbers in the array, 
+# returning 0 for an empty array. Except the number 13 is very unlucky,
+# so it does not count and numbers that come immediately after a 13 also do not count.
+# sum13([1, 2, 2, 1]) = 6
+# sum13([1, 1]) = 2
+# sum13([1, 2, 2, 1, 13]) = 6
+
+# Write your function here:
+def sum13(nums):
+    return 0
 
 # ======================================================
 
-# Exercise 2: Given a list of all english words, print all the palindromes.
-# A palindrome is a word that read the same forwards and backwards,
-# such as 'abba' or 'sees'
-def print_palindromes(english_words):
-    ()
+# Exercise 2: Factorial
+# Write a function that when given a number, returns its factorial.
+# The factorial n! of a number n is the product of all positive integers less than or equal to n:
+# n! = n * (n-1) * (n-2)  * ... * 3 * 2 * 1
+# Note: python has a function for doing factorials but don't use it!
+
+# Write your function here:
+def factorial(num):
+    return 0
 
 # ======================================================
-
-# Exercise 3: Spellchecker. Given a list of all english words and a test word, return whether
-# the test word is in English or not (i.e whether the test word appears in the list). 
-# Note: all words will be lowercase, you do not have to worry about capital letters
-def is_in_english_dictionary(english_words, test_word):
-    ()
-
 
 # Test code: don't edit this
-import random
-words_file = open("words_alpha.txt", 'r')
-words_list = words_file.readlines()
-random.shuffle(words_list)
-print_longest_word(words_list)
-
+import math
 import unittest
 
-import unittest
+class TestExercises(unittest.TestCase):
+    def test_exercise_1(self):
+        for i in range(12):
+            self.assertEqual(factorial(i), math.factorial(i))
 
-class TestEnglishDictionary(unittest.TestCase):
-
-    def test(self):
-        self.assertTrue(is_in_english_dictionary(words_list, 'apple'))
-        self.assertTrue(is_in_english_dictionary(words_list, 'popcorn'))
-        self.assertFalse(is_in_english_dictionary(words_list, 'zapdos'))
-        self.assertFalse(is_in_english_dictionary(words_list, '634'))
+    def test_exercise_2(self):
+        self.assertEqual(sum13([1,2,2,1]), 6)
+        self.assertEqual(sum13([1,1]), 2)
+        self.assertEqual(sum13([1,2,2,1,13]), 6)
+        self.assertEqual(sum13([1,2,2,1,13, 145]), 6)
 
 unittest.main()
